@@ -1,0 +1,69 @@
+<HTML>
+    <HEAD>
+        <TITLE>WRP {{.URL}}</TITLE>
+    </HEAD>
+    <BODY BGCOLOR="{{.BgColor}}">
+        <FORM ACTION="/" METHOD="POST">
+            <INPUT TYPE="TEXT" NAME="url" VALUE="{{.URL}}" SIZE="20">
+            <INPUT TYPE="SUBMIT" VALUE="Go">
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="Bk">
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="St">
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="Re">
+            W <INPUT TYPE="TEXT" NAME="w" VALUE="{{.Width}}" SIZE="4">
+            H <INPUT TYPE="TEXT" NAME="h" VALUE="{{.Height}}" SIZE="4">
+            Z <SELECT NAME="z">
+                <OPTION VALUE="0.7" {{ if eq .Zoom 0.7}}SELECTED{{end}}>0.7 x</OPTION>
+                <OPTION VALUE="0.8" {{ if eq .Zoom 0.8}}SELECTED{{end}}>0.8 x</OPTION>
+                <OPTION VALUE="0.9" {{ if eq .Zoom 0.9}}SELECTED{{end}}>0.9 x</OPTION>
+                <OPTION VALUE="1.0" {{ if eq .Zoom 1.0}}SELECTED{{end}}>1.0 x</OPTION>
+                <OPTION VALUE="1.1" {{ if eq .Zoom 1.1}}SELECTED{{end}}>1.1 x</OPTION>
+                <OPTION VALUE="1.2" {{ if eq .Zoom 1.2}}SELECTED{{end}}>1.2 x</OPTION>
+                <OPTION VALUE="1.3" {{ if eq .Zoom 1.3}}SELECTED{{end}}>1.3 x</OPTION>
+            </SELECT>
+            T <SELECT NAME="t">
+                <OPTION VALUE="gif" {{ if eq .ImgType "gif"}}SELECTED{{end}}>GIF</OPTION>
+                <OPTION VALUE="png" {{ if eq .ImgType "png"}}SELECTED{{end}}>PNG</OPTION>
+				<OPTION VALUE="jpeg" {{ if eq .ImgType "jpeg"}}SELECTED{{end}}>JPEG</OPTION>
+            </SELECT>
+            C <SELECT NAME="c">
+                <OPTION VALUE="2" {{ if eq .NColors 2}}SELECTED{{end}}>2</OPTION>
+                <OPTION VALUE="16" {{ if eq .NColors 16}}SELECTED{{end}}>16</OPTION>
+                <OPTION VALUE="64" {{ if eq .NColors 64}}SELECTED{{end}}>64</OPTION>
+                <OPTION VALUE="128" {{ if eq .NColors 128}}SELECTED{{end}}>128</OPTION>
+                <OPTION VALUE="256" {{ if eq .NColors 256}}SELECTED{{end}}>256</OPTION>
+            </SELECT>
+			Q <SELECT NAME="q">
+                <OPTION VALUE="10" {{ if eq .NQuality 10}}SELECTED{{end}}>10</OPTION>
+                <OPTION VALUE="20" {{ if eq .NQuality 20}}SELECTED{{end}}>20</OPTION>
+                <OPTION VALUE="30" {{ if eq .NQuality 30}}SELECTED{{end}}>30</OPTION>
+                <OPTION VALUE="40" {{ if eq .NQuality 40}}SELECTED{{end}}>40</OPTION>
+                <OPTION VALUE="50" {{ if eq .NQuality 50}}SELECTED{{end}}>50</OPTION>
+				<OPTION VALUE="60" {{ if eq .NQuality 60}}SELECTED{{end}}>60</OPTION>
+                <OPTION VALUE="70" {{ if eq .NQuality 70}}SELECTED{{end}}>70</OPTION>
+                <OPTION VALUE="80" {{ if eq .NQuality 80}}SELECTED{{end}}>80</OPTION>
+                <OPTION VALUE="90" {{ if eq .NQuality 90}}SELECTED{{end}}>90</OPTION>
+                <OPTION VALUE="100" {{ if eq .NQuality 100}}SELECTED{{end}}>100</OPTION>
+			</SELECT>
+            K <INPUT TYPE="TEXT" NAME="k" VALUE="" SIZE="4">
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="Bs">
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="Rt"><!--
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="&lt;">
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="^">
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="v">
+            <INPUT TYPE="SUBMIT" NAME="Fn" VALUE="&gt;" SIZE="1">-->
+        </FORM>
+        <BR>
+        {{if .ImgURL}}
+        <A HREF="{{.MapURL}}">
+            <IMG SRC="{{.ImgURL}}" BORDER="0" ALT="Url: {{.URL}}, Size: {{.ImgSize}} PageHeight: {{.PageHeight}}" WIDTH="{{.ImgWidth}}" HEIGHT="{{.ImgHeight}}" ISMAP>
+        </A>
+        <P>
+        {{end}}
+		<FONT SIZE="-2">
+		<A HREF="/?url=https://github.com/tenox7/wrp/&w={{.Width}}&h={{.Height}}&s={{printf "%.1f" .Zoom}}&c={{.NColors}}&q={{.NQuality}}t={{.ImgType}}">Web Rendering Proxy {{.Version}}</A> |
+		<A HREF="/shutdown/">Shutdown WRP</A> |
+		<A HREF="/">Page Height: {{.PageHeight}}</A> |
+		<A HREF="/">Img Size: {{.ImgSize}}</A>
+		</FONT>
+    </BODY>
+</HTML>
