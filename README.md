@@ -121,7 +121,7 @@ $ ./wrp-amd64-macos -t png
 * Version 4.0 has been completely refactored to use mouse clicks via imagemap instead parsing a href nodes. 
 * Version 4.1 added sending keystrokes in to input boxes. You can now login to Gmail. Also now runs as a Docker container and on Cloud Run/Azure Containers. 
 * Version 4.5 introduces rendering whole pages in to a single tall image with client scrolling.
-* Version 4.5.3 Alpha (unofficial) introduces JPEG image rendering with quality adjustment.
+* Version 4.5.3 Alpha (unofficial) introduces JPEG image rendering with a quality adjustment setting.
 
 ## Credits
 
