@@ -55,7 +55,7 @@ Fortunately ACI allows port 80 without encryption.
 ```
 -l  listen address:port (default :8080)
 -t  image type gif, jpeg or png (default jpeg) 
--g  image geometry, WxHxCxQ, height can be 0 for unlimited (default 1152x600x2x100)
+-g  image geometry, WxHxCxQ, height can be 0 for unlimited (default 1280x960x2x100)
 -h  headless mode, hide browser window on the server (default true)
 -d  chromedp debug logging (default false)
 -n  do not free maps and gif images after use (default false)
